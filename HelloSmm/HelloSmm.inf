@@ -1,0 +1,33 @@
+## @file
+# A skelton of the root SMI handler.
+#
+# Copyright (c) 2021 Satoshi Tanda
+#
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 1.29
+  BASE_NAME                      = HelloSmm
+  FILE_GUID                      = A0F56EC8-CAC5-460B-8D1F-DBF4A0836C80
+  MODULE_TYPE                    = DXE_SMM_DRIVER
+  ENTRY_POINT                    = HelloSmmInitialize
+  PI_SPECIFICATION_VERSION       = 0x00010046                            # PI-1.7.0
+
+[Sources]
+  HelloSmm.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  OvmfPkg/OvmfPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiLib
+  MmServicesTableLib
+
+[Protocols]
+  gEfiMmCpuIoProtocolGuid
+
+[Depex]
+  gEfiMmCpuIoProtocolGuid
